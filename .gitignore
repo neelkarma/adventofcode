@@ -1,0 +1,7 @@
+# Input files
+**/input.txt
+
+# Generated files
+__pycache__/
+*.py[cod]
+*$py.class
