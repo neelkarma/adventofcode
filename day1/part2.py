@@ -7,9 +7,7 @@ if __name__ == "__main__":
             if i < len(data) - 2
         ]
         increments = 0
-        for i, _ in enumerate(windows):
-            if i == 0:
-                continue
+        for i, _ in enumerate(windows[1:]):
             if windows[i] > windows[i - 1]:
                 increments += 1
         print(increments)
