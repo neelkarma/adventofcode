@@ -2,4 +2,4 @@
 
 My solutions for Advent of Code.
 
-If you have no idea what I'm talking about, [go here](https://adventofcode.com/2021/about).
+If you have no idea what I'm talking about, [go here](https://adventofcode.com/about).
