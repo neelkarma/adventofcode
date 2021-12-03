@@ -1,5 +1,5 @@
 # Input files
-**/input.txt
+*/**/input.txt
 
 # Generated files
 __pycache__/
