@@ -1,16 +1,5 @@
-# There is probably a better way to do this, but I'm not bothered to find it
 from typing import List
-
-
-def bitCount(diagnostics: List[str], i: int):
-    ones = 0
-    zeroes = 0
-    for line in diagnostics:
-        if line[i] == "1":
-            ones += 1
-        else:
-            zeroes += 1
-    return ones, zeroes
+from common import bitCount
 
 
 def calculateOxygen(diagnostics: List[str]):
