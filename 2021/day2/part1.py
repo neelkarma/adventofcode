@@ -13,4 +13,3 @@ if __name__ == "__main__":
                 case "up":
                     d -= amount
         print(x * d)
-
