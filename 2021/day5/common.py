@@ -23,8 +23,8 @@ class Point:
             return self.x == other.x and self.y == other.y
         return False
 
-    def __getitem__(self, index: int):
-        return (self.x, self.y)[index]
+    def __iter__(self):
+        return iter((self.x, self.y))
 
 
 class Line:
