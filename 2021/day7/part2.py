@@ -1,4 +1,4 @@
-# CW: This code is heavily unoptimized. Proceed at your own risk.
+# CW: Brute Forcing. Feel free to leave if you feel uncomfortable at any point.
 
 
 def triangleSum(num: int):
