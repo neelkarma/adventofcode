@@ -39,5 +39,4 @@ if __name__ == "__main__":
                         queue.append((x, y - 1))
                 checkedPoints.append((x, y))
             basinSizes.append(len(checkedPoints))
-        basinSizes.sort(reverse=True)
-        print(prod(basinSizes[:3]))
+        print(prod(sorted(basinSizes, reverse=True)[:3]))
