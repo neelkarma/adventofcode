@@ -1,6 +1,6 @@
 if __name__ == "__main__":
-    with open("./input.txt", "r") as inputFile:
-        data = [int(line) for line in inputFile.readlines()]
+    with open("./input.txt", "r") as input_file:
+        data = [int(line) for line in input_file.readlines()]
         windows = [
             data[i] + data[i + 1] + data[i + 2]
             for i, _ in enumerate(data)

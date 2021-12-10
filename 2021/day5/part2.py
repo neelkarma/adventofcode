@@ -2,7 +2,7 @@ from common import Line, Point, Board
 
 
 if __name__ == "__main__":
-    with open("./input.txt", "r") as inputFile:
+    with open("./input.txt", "r") as input_file:
         lines = [
             Line(
                 *[
@@ -10,7 +10,7 @@ if __name__ == "__main__":
                     for coords in line.split(" -> ")
                 ]
             )
-            for line in inputFile.readlines()
+            for line in input_file.readlines()
         ]
 
         board = Board()
@@ -18,4 +18,4 @@ if __name__ == "__main__":
         for line in lines:
             board.process(line)
 
-        print(board.countOverlaps())
+        print(board.count_overlaps())

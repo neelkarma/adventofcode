@@ -3,33 +3,33 @@ from common import Board
 
 
 if __name__ == "__main__":
-    with open("./input.txt", "r") as inputFile:
-        lines = [line.strip() for line in inputFile.readlines()]
+    with open("./input.txt", "r") as input_file:
+        lines = [line.strip() for line in input_file.readlines()]
         deck = [int(num) for num in lines.pop(0).split(",")]
         lines.pop(0)
         boards = {
             id: Board(list(board))
-            for id, (isBlank, board) in enumerate(
+            for id, (is_blank, board) in enumerate(
                 itertools.groupby(lines, lambda x: x == "")
             )
-            if not isBlank
+            if not is_blank
         }
 
-        isWin = False
-        lastNum = -1
-        uncheckedSum = -1
-        winBoard = None
+        is_win = False
+        last_num = -1
+        unchecked_sum = -1
+        win_board = None
         for num in deck:
             for id, board in list(boards.items()):
-                board.checkDraw(num)
-                if not board.checkWin():
+                board.check_draw(num)
+                if not board.check_win():
                     continue
-                winBoard = board
-                lastNum = num
-                isWin = True
-                uncheckedSum = winBoard.sumUnchecked()
+                win_board = board
+                last_num = num
+                is_win = True
+                unchecked_sum = win_board.sum_unchecked()
                 break
-            if isWin:
+            if is_win:
                 break
 
-        print(lastNum * uncheckedSum)
+        print(last_num * unchecked_sum)

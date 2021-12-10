@@ -1,17 +1,16 @@
-# There is probably a better way to do this, but I'm not bothered to find it
-from common import bitCount
+from common import bit_count
 
 if __name__ == "__main__":
-    with open("./input.txt", "r") as inputFile:
-        diagnostics = [line.strip() for line in inputFile.readlines()]
-        gammaBin = ""
+    with open("./input.txt", "r") as input_file:
+        diagnostics = [line.strip() for line in input_file.readlines()]
+        gamma_bin = ""
 
         for i, _ in enumerate(diagnostics[0]):
-            ones, zeroes = bitCount(diagnostics, i)
-            gammaBin += "1" if ones > zeroes else "0"
+            ones, zeroes = bit_count(diagnostics, i)
+            gamma_bin += "1" if ones > zeroes else "0"
 
-        epsilonBin = "".join(["0" if bit == "1" else "1" for bit in gammaBin])
+        epsilon_bin = "".join(["0" if bit == "1" else "1" for bit in gamma_bin])
 
-        gamma = int(gammaBin, 2)
-        epsilon = int(epsilonBin, 2)
+        gamma = int(gamma_bin, 2)
+        epsilon = int(epsilon_bin, 2)
         print(gamma * epsilon)

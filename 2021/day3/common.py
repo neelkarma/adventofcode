@@ -1,7 +1,7 @@
 from typing import List
 
 
-def bitCount(diagnostics: List[str], i: int):
+def bit_count(diagnostics: List[str], i: int):
     ones = 0
     zeroes = 0
     for line in diagnostics:

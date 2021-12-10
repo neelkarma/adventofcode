@@ -64,7 +64,7 @@ class Line:
                 self.start, self.end = self.end, self.start
             return
 
-    def getAllPoints(self):
+    def get_all_points(self):
         points = []
         iter = copy(self.start)
         points.append(copy(iter))
@@ -97,7 +97,7 @@ class Board:
         self.board = {}
 
     def process(self, line: Line):
-        for x, y in line.getAllPoints():
+        for x, y in line.get_all_points():
             if y not in self.board:
                 self.board[y] = {x: 1}
                 continue
@@ -106,7 +106,7 @@ class Board:
                 continue
             self.board[y][x] += 1
 
-    def countOverlaps(self):
+    def count_overlaps(self):
         overlaps = 0
         for row in self.board.values():
             for count in row.values():

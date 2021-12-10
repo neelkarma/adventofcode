@@ -1,10 +1,10 @@
 from numpy import prod
 
 if __name__ == "__main__":
-    with open("./input.txt", "r") as inputFile:
+    with open("./input.txt", "r") as input_file:
         grid = [
             [int(point) for point in line]
-            for line in [line.strip() for line in inputFile.readlines()]
+            for line in [line.strip() for line in input_file.readlines()]
         ]
         risks = []
         for y, rows in enumerate(grid):
@@ -17,13 +17,13 @@ if __name__ == "__main__":
                 ):
                     risks.append((x, y))
 
-        basinSizes = []
+        basin_sizes = []
         for risk in risks:
-            checkedPoints = []
+            checked_points = []
             queue = [risk]
             while queue:
                 x, y = queue.pop(0)
-                if (x, y) in checkedPoints:
+                if (x, y) in checked_points:
                     continue
                 if x + 1 < len(grid[0]):
                     if grid[y][x + 1] != 9:
@@ -37,6 +37,6 @@ if __name__ == "__main__":
                 if y - 1 >= 0:
                     if grid[y - 1][x] != 9:
                         queue.append((x, y - 1))
-                checkedPoints.append((x, y))
-            basinSizes.append(len(checkedPoints))
-        print(prod(sorted(basinSizes, reverse=True)[:3]))
+                checked_points.append((x, y))
+            basin_sizes.append(len(checked_points))
+        print(prod(sorted(basin_sizes, reverse=True)[:3]))

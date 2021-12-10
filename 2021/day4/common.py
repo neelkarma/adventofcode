@@ -9,7 +9,7 @@ class Number:
         self.num = num
         self.checked = False
 
-    def checkDraw(self, num: int):
+    def check_draw(self, num: int):
         if self.num == num:
             self.checked = True
         return self.checked
@@ -18,17 +18,17 @@ class Number:
 class Board:
     board: List[List[Number]]
 
-    def __init__(self, boardLines: List[str]):
+    def __init__(self, board_lines: List[str]):
         self.board = [
-            [Number(int(num)) for num in row.strip().split()] for row in boardLines
+            [Number(int(num)) for num in row.strip().split()] for row in board_lines
         ]
 
-    def checkDraw(self, num: int):
+    def check_draw(self, num: int):
         for row in self.board:
-            for boardNum in row:
-                boardNum.checkDraw(num)
+            for board_num in row:
+                board_num.check_draw(num)
 
-    def checkWin(self):
+    def check_win(self):
         for i in range(5):
             if all([num.checked for num in self.board[i]]) or all(
                 [num.checked for num in [self.board[j][i] for j in range(5)]]
@@ -36,7 +36,7 @@ class Board:
                 return True
         return False
 
-    def sumUnchecked(self):
+    def sum_unchecked(self):
         sum = 0
         for row in self.board:
             for num in row:

@@ -1,14 +1,14 @@
 from typing import Dict
 
 
-def simulateFish(fishCounter: Dict[int, int], days: int):
+def simulateFish(fish_counter: Dict[int, int], days: int):
     for _ in range(days):
-        newFishCounter = {i: 0 for i in range(9)}
-        for timer, count in fishCounter.items():
+        new_fish_counter = {i: 0 for i in range(9)}
+        for timer, count in fish_counter.items():
             if timer == 0:
-                newFishCounter[6] += count
-                newFishCounter[8] += count
+                new_fish_counter[6] += count
+                new_fish_counter[8] += count
                 continue
-            newFishCounter[timer - 1] += count
-        fishCounter = newFishCounter
-    return sum(fishCounter.values())
+            new_fish_counter[timer - 1] += count
+        fish_counter = new_fish_counter
+    return sum(fish_counter.values())
