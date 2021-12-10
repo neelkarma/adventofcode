@@ -27,7 +27,7 @@ if __name__ == "__main__":
         }
         for g1, g2 in data:
             for perm in permutations("abcdefg"):
-                perm_map = {k: v for k, v in zip(perm, "abcdefg")}
+                perm_map = dict(zip(perm, "abcdefg"))
 
                 g1_list = ["".join(perm_map[c] for c in x) for x in g1]
                 g2_list = ["".join(perm_map[c] for c in x) for x in g2]

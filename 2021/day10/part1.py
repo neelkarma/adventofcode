@@ -3,8 +3,8 @@ if __name__ == "__main__":
         lines = [line.strip() for line in inputFile.readlines()]
         open_chars = ["(", "[", "{", "<"]
         close_chars = [")", "]", "}", ">"]
-        chunk_map = {k: v for k, v in zip(open_chars, close_chars)}
-        points_map = {k: v for k, v in zip(close_chars, [3, 57, 1197, 25137])}
+        chunk_map = dict(zip(open_chars, close_chars))
+        points_map = dict(zip(close_chars, [3, 57, 1197, 25137]))
         points = 0
         for line in lines:
             stack = []
