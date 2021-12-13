@@ -32,12 +32,11 @@ if __name__ == "__main__":
                             points.add(new_point)
 
         # Print the message
-        row_str = ""
         for y in range(max(y for _, y in points) + 1):
+            row_str = ""
             for x in range(max(x for x, _ in points) + 1):
                 if (x, y) in points:
                     row_str += "\u2588"  # Block character
                     continue
                 row_str += " "
             print(row_str)
-            row_str = ""
