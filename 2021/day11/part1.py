@@ -19,46 +19,21 @@ if __name__ == "__main__":
                 if (x, y) in curr_step_flashes:
                     continue
                 curr_step_flashes.append((x, y))
-                if x + 1 < len(grid[0]):
-                    if not (x + 1, y) in curr_step_flashes:
-                        grid[y][x + 1] += 1
-                        if grid[y][x + 1] > 9:
-                            queue.append((x + 1, y))
-                if x - 1 >= 0:
-                    if not (x - 1, y) in curr_step_flashes:
-                        grid[y][x - 1] += 1
-                        if grid[y][x - 1] > 9:
-                            queue.append((x - 1, y))
-                if y + 1 < len(grid):
-                    if not (x, y + 1) in curr_step_flashes:
-                        grid[y + 1][x] += 1
-                        if grid[y + 1][x] > 9:
-                            queue.append((x, y + 1))
-                if y - 1 >= 0:
-                    if not (x, y - 1) in curr_step_flashes:
-                        grid[y - 1][x] += 1
-                        if grid[y - 1][x] > 9:
-                            queue.append((x, y - 1))
-                if x + 1 < len(grid[0]) and y - 1 >= 0:
-                    if not (x + 1, y - 1) in curr_step_flashes:
-                        grid[y - 1][x + 1] += 1
-                        if grid[y - 1][x + 1] > 9:
-                            queue.append((x + 1, y - 1))
-                if x + 1 < len(grid[0]) and y + 1 < len(grid):
-                    if not (x + 1, y + 1) in curr_step_flashes:
-                        grid[y + 1][x + 1] += 1
-                        if grid[y + 1][x + 1] > 9:
-                            queue.append((x + 1, y + 1))
-                if x - 1 >= 0 and y + 1 < len(grid):
-                    if not (x - 1, y + 1) in curr_step_flashes:
-                        grid[y + 1][x - 1] += 1
-                        if grid[y + 1][x - 1] > 9:
-                            queue.append((x - 1, y + 1))
-                if x - 1 >= 0 and y - 1 >= 0:
-                    if not (x - 1, y - 1) in curr_step_flashes:
-                        grid[y - 1][x - 1] += 1
-                        if grid[y - 1][x - 1] > 9:
-                            queue.append((x - 1, y - 1))
+                for new_x, new_y in [
+                    (x + 1, y),
+                    (x - 1, y),
+                    (x, y + 1),
+                    (x, y - 1),
+                    (x + 1, y - 1),
+                    (x + 1, y + 1),
+                    (x - 1, y + 1),
+                    (x - 1, y - 1),
+                ]:
+                    if 0 <= new_x < len(grid[0]) and 0 <= new_y < len(grid):
+                        if not (new_x, new_y) in curr_step_flashes:
+                            grid[new_y][new_x] += 1
+                            if grid[new_y][new_x] > 9:
+                                queue.append((new_x, new_y))
             for x, y in curr_step_flashes:
                 grid[y][x] = 0
 
