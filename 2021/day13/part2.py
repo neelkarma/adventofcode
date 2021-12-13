@@ -33,17 +33,10 @@ if __name__ == "__main__":
 
         # Print the message
         row_str = ""
-        max_x = 0
-        max_y = 0
-        for x, y in points:
-            if x > max_x:
-                max_x = x
-            if y > max_y:
-                max_y = y
-        for y in range(max_y + 1):
-            for x in range(max_x + 1):
+        for y in range(max(y for _, y in points) + 1):
+            for x in range(max(x for x, _ in points) + 1):
                 if (x, y) in points:
-                    row_str += "#"
+                    row_str += "\u2588"  # Block character
                     continue
                 row_str += " "
             print(row_str)
