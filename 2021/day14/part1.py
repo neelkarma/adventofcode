@@ -1,4 +1,3 @@
-from pprint import pprint
 from collections import Counter
 
 if __name__ == "__main__":
@@ -23,8 +22,5 @@ if __name__ == "__main__":
                     )
                     pointer += 1
                 pointer += 1
-            # print("")
-            # print(template)
-            # input("...")
         char_counter = dict(Counter(template))
         print(max(char_counter.values()) - min(char_counter.values()))
